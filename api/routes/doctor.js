@@ -1,14 +1,34 @@
 const express = require('express');
 const router = express.Router();
+const Doctor = require('../model/doctor');
+const mongoose = require('mongoose');
+
 
 router.get('/',(req, res,next) =>{
-  res.status(200).json({
-      msg: 'this is doctor get request'
-  })
+ 
 })
+
+//post////////////////////////////////
 router.post('/',(req, res,next) =>{
-    res.status(200).json({
-        msg: 'this is doctor post request'
+    
+    const doctor = new Doctor({
+      _id:new mongoose.Types.ObjectId,
+      name: req.body.name,
+      gender:req.body.gender,
+      email: req.body.email,
+    })
+    doctor.save()
+    .then(result=>{
+      console.log(result);
+      res.status(200).json({
+        newDoctor:result
+      })
+    })
+    .catch(err=>{
+      console.log(err);
+      res.status(500).json({
+        error:err
+      })
     })
   })
 
