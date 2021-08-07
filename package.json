@@ -1,0 +1,19 @@
+{
+  "name": "msk-api",
+  "version": "1.0.0",
+  "description": "msk api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "msks",
+    "api"
+  ],
+  "author": "msk",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
