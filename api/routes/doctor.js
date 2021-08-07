@@ -1,0 +1,18 @@
+const express = require('express');
+const router = express.Router();
+
+router.get('/',(req, res,next) =>{
+  res.status(200).json({
+      msg: 'this is doctor get request'
+  })
+})
+router.post('/',(req, res,next) =>{
+    res.status(200).json({
+        msg: 'this is doctor post request'
+    })
+  })
+
+
+
+
+module.exports = router;
