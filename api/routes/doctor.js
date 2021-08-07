@@ -3,9 +3,35 @@ const router = express.Router();
 const Doctor = require('../model/doctor');
 const mongoose = require('mongoose');
 
-
+//get///////////////
 router.get('/',(req, res,next) =>{
- 
+ Doctor.find()
+ .then(result=>{
+   res.status(200).json({
+      doctorData: result
+   });
+  })
+   .catch(err=>{
+    console.log(err);
+    res.status(500).json({
+      error:err
+    })
+ })
+})
+router.get('/:id',(req, res,next) =>{ 
+  console.log(req.params.id);
+  Doctor.findById(req.params.id)
+  .then(result=>{
+    res.status(200).json({
+       doctor: result
+    })
+})
+.catch(err=>{
+  console.log(err);
+  res.status(500).json({
+    error:err
+    })
+  })
 })
 
 //post////////////////////////////////
